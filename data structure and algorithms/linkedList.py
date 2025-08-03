@@ -44,6 +44,17 @@ class linkedList:
                 return
             prev = current
             current = current.next
+            
+    def reverse(self):
+        prev = None
+        current = self.head
+        
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
 
 
 ll = linkedList()
@@ -54,3 +65,6 @@ ll.show()
 
 ll2 = linkedList()
 ll2.show()
+
+ll.reverse()
+ll.show()
