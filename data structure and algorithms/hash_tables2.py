@@ -53,14 +53,37 @@ class hashTable:
                     print(f"index ke {index} => key = : {k}, value : {v}")
             else:
                 print(f"index ke {index} kosong")
-            
-
+    
+    def keys(self):
+        res = []
+        for index in self.table:
+            # print(index) #output [('nama', 'filosofi teras'), ('aman', 'dump')]
+            for k,_ in index:
+                res.append(k)
+        
+        return res
+    def values(self):
+        res = []
+        for index in self.table:
+            for _,v in index:
+                res.append(v)
+        return res
+    
+    def items(self):
+        res = []
+        for index in self.table:
+            for k,v in index:
+                res.append((k,v))
+        return res
+        
+        
 buku = hashTable(7)
 print(f"{'*' * 5} tabel buku {'*' * 5}")
 buku.set("nama","filosofi teras")
 buku.set("aman","dump")
 buku.set("penulis","marcus aurelius")
 buku.displayTable()
+print(buku.items())
 
 print(f"{'*' * 5} tabel mahasiswa {'*' * 5}")
 mahasiswa = hashTable(3)
