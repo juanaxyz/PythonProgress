@@ -1,3 +1,13 @@
+'''
+bst = node(value, left, right)
+
+inorder = sort small -> high
+preorder = print jalan yang dilalui saat mencari node paling kecil sampai semua node di print
+postorder = print dari node terakhir paling kiri
+
+
+'''
+
 class Node():
     def __init__(self, value):
         self.value = value
@@ -45,12 +55,40 @@ class binarySearchTree():
             self._search_recursive(current.right,query)
         elif query < current.value:
             self._search_recursive(current.left,query)
+    
+    def _inorder_traversal(self,current: Node):
+        if current.left:
+            self._inorder_traversal(current.left)
+        print(current.value)
+        if current.right:
+            self._inorder_traversal(current.right)
+            
+    
+    def _preorder_traversal(self,current: Node):
+        print(current.value)
+        if current.left:
+            self._preorder_traversal(current.left)
+        if current.right:
+            self._preorder_traversal(current.right)
+        
+    
+    def _postorder_traversal(self,current: Node):
+        if current.left:
+            self._postorder_traversal(current.left)
+        if current.right:
+            self._postorder_traversal(current.right)
+        print(current.value)
+        
             
             
 tree = binarySearchTree()
 tree.insert(5)
-print("sudah masuk 5")
+# print("sudah masuk 5")
+tree.insert(3)
 tree.insert(3)
 tree.insert(10)
 tree.insert(7)
 print(tree.search(5))
+# tree._inorder_traversal(current=tree.root)
+# tree._preorder_traversal(current=tree.root)
+tree._postorder_traversal(current=tree.root)
