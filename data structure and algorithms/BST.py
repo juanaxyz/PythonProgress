@@ -78,8 +78,34 @@ class binarySearchTree():
         if current.right:
             self._postorder_traversal(current.right)
         print(current.value)
+    
+    def delete(self, current : Node, data):
+        if data < current.value:
+            current.left = self.delete(current.left, data)
+        elif data > current.value:
+            current.right = self.delete(current.right, data)
+        else:
+            if data == current.value:
+                if current.left is None and current.right is None:
+                    current = None
+                    return current
+                elif current.left and current.right is None:
+                    current = current.left
+                    return current
+                elif current.right and current.left is None:
+                    current = current.right
+                    return current
+                
+                elif current.left and current.right:
+                    current.value = self._inorder_successor(current=current.right)
+                    current.right = self.delete(current.right, current.value)
+        return current
+                
+    def _inorder_successor(self, current: Node):
+        if current.left is None:
+            return current.value
+        return self._inorder_successor(current.left)
         
-            
             
 tree = binarySearchTree()
 tree.insert(5)
