@@ -33,7 +33,7 @@ def quick_sort(number_list: list):
     
     return (quick_sort(smaller_list) + pivot_list + quick_sort(greater_list))
             
-    
 
-numbers = get_random_numbers(10)
-print(quick_sort(numbers))
+if __name__ == "__main__":
+    numbers = get_random_numbers(10)
+    print(quick_sort(numbers))
