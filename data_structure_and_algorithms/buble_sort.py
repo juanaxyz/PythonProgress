@@ -7,10 +7,12 @@ def buble_sort(list_items: list):
                 temp = list_items[j]
                 list_items[j] = list_items[j+1]
                 list_items[j+1] = temp
-    print(list_items)
-
-numbers = []
-for n in range(10):
-    numbers.append(randint(1,100))
-        
-buble_sort(numbers)
+    # print(list_items)
+    return list_items
+    
+if __name__ == "__main__":
+    numbers = []
+    for n in range(10):
+        numbers.append(randint(1,100))
+            
+    buble_sort(numbers)

@@ -13,7 +13,7 @@ def timespend(function):
         
         timeSpended = after - before
         
-        print(f"time spended for function {function.__name__} = {timeSpended}")
+        print(f"time spended for function is {timeSpended}")
         return value
     return wrapper
 
@@ -22,8 +22,14 @@ numbers = []
 numbers = [random.randint(1,10000) for _ in range (10000)]
 # print(f"list acak : {numbers}")
 @timespend
-def algorithm(name):
-    print(f"algoritma {name}")
-    return quick_sort(numbers)
-
-algorithm("quick sort")
+def algorithmqs():
+    print(f"algoritma quick sort")
+    quick_sort(numbers)
+    
+@timespend
+def algorithmbs():
+    print("algoritma buble sort ")
+    buble_sort(numbers)
+    
+algorithmqs()
+algorithmbs()
