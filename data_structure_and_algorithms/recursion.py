@@ -2,7 +2,7 @@ import time
 
 def countdown(n: int):
     if n == 0:
-        print(f"boom!!!")
+        print("boom!!!")
         return
         
     print(f"you have {n} sec left")

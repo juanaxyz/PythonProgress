@@ -23,7 +23,7 @@ numbers = [random.randint(1,10000) for _ in range (10000)]
 # print(f"list acak : {numbers}")
 @timespend
 def algorithmqs():
-    print(f"algoritma quick sort")
+    print("algoritma quick sort")
     quick_sort(numbers)
     
 @timespend
